@@ -25,7 +25,7 @@ SECRET_KEY = 'ib&z%g!h8ctv@h$c2*7rzz3_!)1^6621%1=+x)$vk*a#!*m=vk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hsuanlyh.pythonanywhere.com',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']#['*']
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+    'nlpFinal',
+    'trips',
+    'restaurants',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS':[os.path.join(BASE_DIR, 'templates').replace('\\', '/'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,35 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NLP Final</title>
+    <style>
+        body {
+            background-color: lightyellow;
+        }
+
+        em {
+            color: LightSeaGreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>NLP Final</h1>
+    <em>{{ current_time }}</em>
+    <form method="GET">
+        Question:
+        <input type="text" name="search">
+        <br/>
+        <input type="submit" value="Submit" />
+    </form>
+    <br/> Word is
+    <b>{{search}}</b>
+    <br/> {% for question in questions %}
+    <p>{{question}}</p>
+    {% endfor %}
+</body>
+
+</html>
