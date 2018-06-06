@@ -15,12 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from trips.views import index, welcome
-from restaurants.views import menu
-
+from nlpFinal.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('trips/index/', index),
-    path('trips/welcome/', welcome),
-    path('menu/', menu),
+    path('nlpFinal/',index)
 ]
