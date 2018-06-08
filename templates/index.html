@@ -1,9 +1,123 @@
 <!-- index.html -->
- {% load staticfiles %}
+<!--
+author: Boostraptheme
+author URL: https://boostraptheme.com
+License: Creative Commons Attribution 4.0 Unported
+License URL: https://creativecommons.org/licenses/by/4.0/
+-->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Profile Bootstrap Theme</title>
+
+    <!-- Global stylesheets -->
+    <link href="{% static 'css/bootstrap/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/devicons/css/devicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <nav class=" navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <div class="nav-div">
+            <h2 class="text-center">Finding Synonym</h2>
+            <p class="subheading"> Finding Synonyms for a Given Word Sense (words with separate possible parts-of-speech and senses)
+            </p>
+            <form method="GET" class="nav-sub-div">
+                <input type="text" name="search" placeholder="Input some word here" autocomplete="off">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    </nav>
+
+    <div class="container-fluid p-0">
+        <!--====================================================
+                        EXPERIENCE
+    ======================================================-->
+        <section class="resume-section p-3 p-lg-5 ">
+            <div class="row my-auto">
+                <div class="col-12">
+                    <h2 class="text-center">{{search}}</h2>
+                    <div class="mb-5 heading-border"></div>
+                </div>
+                {% for key, value in dictionary.items %}
+                <div class="resume-item col-md-12 col-sm-12 ">
+                    <div class="card mx-0 p-4 mb-5" style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                        <div class=" resume-content mr-auto">
+                            <h4 class="mb-3" class="specialh5">Definition</h4>
+                            <p> {{ value.def }}</p>
+                            <h4 class="mb-3">Synonym</h4>
+                            <div>
+                                {% for value2 in value.lemma %}
+                                <h5>{{value2}}</h5> 50%
+                                <p>the flora and fauna of North America</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+</body>
+
+</html>
+<!--
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>NLP Final</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+    <div>
+        <h1>NLP Final</h1>
+        <form method="GET">
+            <input type="text" name="search" placeholder="Input some word here" autocomplete="off">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <br/>
+    <div>
+        <b>{{search}}</b>
+        <br/>
+        <br/> {% for key, value in dictionary.items %}
+        <div>{{ key }}
+            <br/> lemma: {{ value.lemma }}
+            <br/> definition: {{ value.def }}
+            <br/> example: {{ value.ex }}
+            <br/>
+        </div>
+        <br/> {% endfor %}</div>
+</body>
+-->
+<!--</html>
 <!DOCTYPE html>
 <html>
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <title>NLP Final</title>
     <style>
         body {
@@ -47,8 +161,7 @@
 
 <body>
     <h1>NLP Final</h1>
-    <em>{{ current_time }}</em>
-    <form method="GET" >
+    <form method="GET">
         Question:
         <input type="text" name="search" placeholder="Input some word here" autocomplete="off" class="form-control">
         <br/>
@@ -67,6 +180,6 @@
 
 </html>
 
-<!--{% for ans in dictionary %}
+{% for ans in dictionary %}
 <p>{{ans}}</p>
 {% endfor %}-->

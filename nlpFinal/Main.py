@@ -6,19 +6,17 @@ def OutputSynonym(key):
     for s in syns:
         if len(s.lemmas()) <= 1:
             continue
-        string = ''
+        lemmaList = []
         for l in s.lemmas():
-            string += l.name()
-            string += ','
-        key = str(s).replace('.', '_')
+            lemmaList.append(l.name())
         newDict = {}
-        newDict['lemma']=string
+        newDict['lemma']=lemmaList
         newDict['def']=str(s.definition())
         if s.examples() != []:
             newDict['ex']=str(s.examples()[0])
         else:
             newDict['ex'] = ''
-        ans[key]=newDict
+        ans[s.name()]=newDict
     return ans
 
 '''
