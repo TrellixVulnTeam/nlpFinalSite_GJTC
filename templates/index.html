@@ -15,12 +15,13 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     <meta name="description" content="">
     <meta name="author" content="">
     <title>NLP Final</title>
-
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
     <!-- Global stylesheets -->
     <link href="{% static 'css/bootstrap/bootstrap.min.css'%}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{% static 'css/devicons/css/devicons.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -33,16 +34,22 @@ License URL: https://creativecommons.org/licenses/by/4.0/
             <p class="subheading"> Finding Synonyms for a Given Word Sense (words with separate possible parts-of-speech and senses)
             </p>
             <form method="GET" class="nav-sub-div">
-                <input type="text" name="search" placeholder="Input some word here" autocomplete="off">
-                <input type="submit" value="Submit">
+                <div class="box">
+                    <div class="container-4">
+                        <input type="text" id = "search" name="search" placeholder="Search..." />
+                        <button class="icon" type = "submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
 
     </nav>
 
     <div class="container-fluid p-0">
-        <!--====================================================
-                        EXPERIENCE
+    <!--====================================================
+                        Main
     ======================================================-->
         <section class="resume-section p-3 p-lg-5 ">
             <div class="row my-auto">
