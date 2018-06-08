@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from nlpFinal.Main import OutputSynonym
 from collections import defaultdict
+
 def index(request):
     answers=None
     if request.GET.get('search'):

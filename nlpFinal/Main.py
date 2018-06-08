@@ -6,9 +6,11 @@ def OutputSynonym(key):
     for s in syns:
         if len(s.lemmas()) <= 1:
             continue
-        lemmaList = []
+        lemmaList = {}
+        i=5
         for l in s.lemmas():
-            lemmaList.append(l.name())
+            lemmaList[l.name()] = i
+            i+=10
         newDict = {}
         newDict['lemma']=lemmaList
         newDict['def']=str(s.definition())

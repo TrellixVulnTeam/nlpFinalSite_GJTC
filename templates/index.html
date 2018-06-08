@@ -36,8 +36,8 @@ License URL: https://creativecommons.org/licenses/by/4.0/
             <form method="GET" class="nav-sub-div">
                 <div class="box">
                     <div class="container-4">
-                        <input type="text" id = "search" name="search" placeholder="Search..." />
-                        <button class="icon" type = "submit">
+                        <input type="text" id="search" name="search" placeholder="Search..." />
+                        <button class="icon" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -48,7 +48,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     </nav>
 
     <div class="container-fluid p-0">
-    <!--====================================================
+        <!--====================================================
                         Main
     ======================================================-->
         <section class="resume-section p-3 p-lg-5 ">
@@ -59,16 +59,105 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                 </div>
                 {% for key, value in dictionary.items %}
                 <div class="resume-item col-md-12 col-sm-12 ">
-                    <div class="card mx-0 p-4 mb-5" style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                    <div class="card mx-0 p-4 mb-5" style="border-color: #9DD8CD; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
                         <div class=" resume-content mr-auto">
-                            <h4 class="mb-3" class="specialh5">Definition</h4>
+                            <h4 class="mb-3">Definition</h4>
                             <p> {{ value.def }}</p>
+                            <h4 class="mb-3">Example</h4>
+                            <p> {{ value.ex }}</p>
                             <h4 class="mb-3">Synonym</h4>
                             <div>
-                                {% for value2 in value.lemma %}
-                                <h5>{{value2}}</h5> 50%
-                                <p>the flora and fauna of North America</p>
-                                {% endfor %}
+                                <div>
+                                    {% for key2,value2 in value.lemma.items %}
+                                    <div id="DIV1">
+                                        <h5>{{key2}}</h5>
+                                    </div>
+                                    <div id="DIV2">
+                                        {% if value2 <= 5 %}
+                                        <div class="progress-radial progress-5">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 10 %}
+                                        <div class="progress-radial progress-10">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 15 %}
+                                        <div class="progress-radial progress-15">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 20 %}
+                                        <div class="progress-radial progress-20">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 25 %}
+                                        <div class="progress-radial progress-25">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 30 %}
+                                        <div class="progress-radial progress-30">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 35 %}
+                                        <div class="progress-radial progress-35">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 40 %}
+                                        <div class="progress-radial progress-40">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 45 %}
+                                        <div class="progress-radial progress-45">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 50 %}
+                                        <div class="progress-radial progress-50">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 55 %}
+                                        <div class="progress-radial progress-55">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 60 %}
+                                        <div class="progress-radial progress-60">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 65 %}
+                                        <div class="progress-radial progress-65">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 70 %}
+                                        <div class="progress-radial progress-70">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 75 %}
+                                        <div class="progress-radial progress-75">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 80 %}
+                                        <div class="progress-radial progress-80">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 85 %}
+                                        <div class="progress-radial progress-85">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 90 %}
+                                        <div class="progress-radial progress-90">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% elif value2 <= 95 %}
+                                        <div class="progress-radial progress-95">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% else %}
+                                        <div class="progress-radial progress-100">
+                                            <div class="overlay">{{value2}}</div>
+                                        </div>
+                                        {% endif %}
+
+                                    </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
