@@ -1,11 +1,14 @@
 from nltk.corpus import wordnet as wn
 from collections import defaultdict
 import json
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 config = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11']
-final_dict = defaultdict(lambda: set())
-with open('result_2.json') as f:
-    result_dict = json.load(f)
+final_dict = defaultdict(lambda: list())
+result_dict_json_data = os.path.join(BASE_DIR, 'static', "result_2.json")
+result_dict_str = open(result_dict_json_data, 'r').read()
+result_dict = json.loads(result_dict_str)
 for sys in result_dict.keys():
     result = []
     for s in result_dict[sys]:
@@ -23,39 +26,29 @@ for sys in result_dict.keys():
         result += ss
     final_dict[sys] = list(set(result))
 
+mostFrequencyDict_json_data = os.path.join(BASE_DIR, 'static', "mostFrequencyDict1.json")
+mostFrequencyDict_str = open(mostFrequencyDict_json_data, 'r').read()
+mostFrequencyDict = json.loads(mostFrequencyDict_str)
+
+example3Dict_json_data = os.path.join(BASE_DIR, 'static', "Example3.json")
+example3Dict_str = open(example3Dict_json_data, 'r').read()
+example3Dict = json.loads(example3Dict_str)
+
 def OutputSynonym(key):
     ans = {}
     syns = wn.synsets(key, pos='n')
     for s in syns:
-        if len(s.lemmas()) <= 1:
-            continue
-        lemmaDict = {}
-        l = final_dict[s.name()][0:5]
-        i = 5
-        for ll in l:
-            lemmaDict[ll] = i
-            i += 10
         newDict = {}
-        newDict['lemma'] = lemmaDict
-        newDict['def'] = str(s.definition())
-        if s.examples() != []:
-            newDict['ex'] = str(s.examples()[0])
-        else:
-            newDict['ex'] = ''
-        ans[s.name()]=newDict
+        sysWord = s.name().split('.')[0]
+        if s.name() in mostFrequencyDict:
+            newDict['lemma'] = mostFrequencyDict[s.name()]
+            newDict['def'] = str(s.definition())
+            if s.examples() != []:
+                newDict['ex'] = str(s.examples()[0]).replace(sysWord,key)
+            else:
+                if s.name() in example3Dict:
+                    newDict['ex'] = str(example3Dict[s.name()][0]).replace(sysWord,key)
+                else:
+                    newDict['ex'] = ''
+            ans[s.name()] = newDict
     return ans
-
-'''
-def OutputSynonym(key):
-    ans = []
-    syns = wn.synsets(key, pos='n')
-    for s in syns:
-        if len(s.lemmas()) <= 1:
-            continue
-        ans.append(s)
-        for l in s.lemmas():
-            ans.append(l.name())
-        ans.append(s.definition())
-        ans.append(s.examples())
-    return ans
-'''

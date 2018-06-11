@@ -20,6 +20,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     <link href="{% static 'css/bootstrap/bootstrap.min.css'%}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{% static 'css/devicons/css/devicons.min.css' %}" rel="stylesheet">
@@ -65,12 +66,12 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                             <p> {{ value.def }}</p>
                             <h4 class="mb-3">Example</h4>
                             <p> {{ value.ex }}</p>
-                            <h4 class="mb-3">Synonym</h4>
+                            <h4 class="mb-3 ">Synonym</h4>
                             <div>
                                 <div>
                                     {% for key2,value2 in value.lemma.items %}
                                     <div id="DIV1">
-                                        <h5>{{key2}}</h5>
+                                        <h5 class="specialh5">{{key2}}</h5>
                                     </div>
                                     <div id="DIV2">
                                         {% if value2 <= 5 %}
