@@ -38,6 +38,7 @@ def OutputSynonym(key):
     ans = {}
     syns = wn.synsets(key, pos='n')
     for s in syns:
+        if len(s.lemmas()) <= 1: continue
         newDict = {}
         sysWord = s.name().split('.')[0]
         if s.name() in mostFrequencyDict:
