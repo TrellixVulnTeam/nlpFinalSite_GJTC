@@ -53,7 +53,7 @@ h5 {
 }
 
 .specialh5{
-
+    text-transform: lowercase;
     font-weight: normal;
 }
 a:hover,
